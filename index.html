@@ -1,7 +1,61 @@
-<html>
+<html ng-app="myApp">
 <head>
-  <script src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>GitHub Profiler</title>
+
 </head>
-<body>
+<body ng-controller="GitHubCtrl as vm">
+  <h1></h1>
+  <div class="well well-lg">
+  <h1 id="title">GitHub Profiler</h1>
+    <h4 class="text"><i>Find out information on any Github user!<i></h4>
+  </div>
+  <div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="input-group">
+  <input ng-model="vm.userName" type="text" class="form-control" placeholder="Search for GitHub user...">
+  <span class="input-group-btn">
+  <button class="btn btn-default" ng-click="vm.getUserInfo()" type="button">Go!</button>
+</span>
+</div>
+</div>
+<hr>
+       <div class="row">
+           <div class="col-md-3">
+             <img ng-src="{{vm.user.avatar_url}}" class="img-circle img-responsive text-center"></img>
+               <hr>
+               <div class="text-center small">
+                   <p><span style="font-weight: bold">{{vm.user.html_url}}</span> {{vm.user.login}}</p>
+                   <br/>
+                   <p>{{vm.user.location}}</p>
+                   <br/>
+                   <p ng-class=home.hireableColor>{{vm.user.hireable}}</p>
+                   <br/>
+                   <p> {{vm.user.created_at | date: 'longDate'}}</p>
+               </div>
+               <br/>
+           </div>
+           <div class="col-md-3">
+               <div class="well text-muted text-center">
+                   <p>Followers </p>
+                   <br/>{{vm.user.followers}}</div>
+           </div>
+           <div class="col-md-3">
+               <div class="well text-center">
+                   <p class="text-muted">Following</p>
+                   <br/> {{vm.user.following}}</div>
+           </div>
+           <div class="col-md-3">
+               <div class="well text-center">
+                   <p class="text-muted">Public Repositories</p>
+                   <br/>{{vm.user.public_repos}}</div>
+           </div>
+       </div>
+   </div>
+   <script src="app.js"></script>
+   <script src="controller.js"></script>
 </body>
 </html>
