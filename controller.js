@@ -18,7 +18,7 @@ function GitHubCtrl($http) {
   function activate() {
     vm.getUserInfo = function() {
 console.log("getUserInfo")
-     $http.get("http://api.github.com/users/" + vm.userName + "?access_token=1563efdd17dd6cc9c602bcd37d43e633e65aed7a")
+     $http.get("http://api.github.com/users/" + vm.userName + "?access_token=0f051e5123d529c5ab9670fd707f8d8a14da298a")
        .then(function(response) {
          vm.user = response.data;
          console.log(vm.user);
